@@ -1,7 +1,7 @@
 //Sprinkler Outputs:
-sprinkler_One = 15;
-sprinkler_Two = 27;
-sprinkler_Three = 10;
+const int sprinkler_One = 15;
+const int sprinkler_Two = 27;
+const int sprinkler_Three = 10;
 
 //Moisture_one = 
 
