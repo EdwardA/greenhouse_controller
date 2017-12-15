@@ -41,4 +41,6 @@ The slave unit is based off the ATMEGA 1284 chip, using a 3rd party arduino boot
 
 The slave is programed thanks to the use of the bootloader found here: http://www.leonardomiliani.com/repository/package_leonardomiliani.com_index.json
 
+Light sensor = TCSP3200, code based off the example given at: https://randomnerdtutorials.com/arduino-color-sensor-tcs230-tcs3200/
+
 
