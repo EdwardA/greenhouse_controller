@@ -60,6 +60,10 @@ void setup() {
   pinMode(E_Stop,INPUT);
   attachInterrupt(25,emergancy_Stop, LOW);
 
+  pinMode(red, OUTPUT);
+  pinMode(green, OUTPUT);
+  pinMode(blue, OUTPUT);
+
 }
 
 void loop() {
