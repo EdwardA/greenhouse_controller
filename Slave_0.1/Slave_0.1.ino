@@ -112,14 +112,14 @@ void colour_Check(){
   digitalWrite(S3,LOW);
 
   red_Freq = pulseIn(S_Out,LOW); //Read red value
-  red_Colour = map(red_freq, 0,100,255,0); // maps red sensor output to standard RGB range **Change input values to map to within appropriate range after testing**
+  red_Colour = map(red_Freq, 0,100,255,0); // maps red sensor output to standard RGB range **Change input values to map to within appropriate range after testing**
   delay(100);
   
   digitalWrite(S2,HIGH); //set sensor to read green value
   digitalWrite(S3,HIGH);
 
   green_Freq = pulseIn(S_Out,LOW); //Read red value
-  green_Colour = map(green_freq, 0,100,255,0); // maps green sensor output to standard RGB range **Change input values to map to within appropriate range after testing**
+  green_Colour = map(green_Freq, 0,100,255,0); // maps green sensor output to standard RGB range **Change input values to map to within appropriate range after testing**
   delay(100);
 
   digitalWrite(S2,LOW); //set sensor to read blue value
@@ -128,7 +128,12 @@ void colour_Check(){
   blue_Freq = pulseIn(S_Out,LOW);
   blue_Colour = map(blue_Freq, 0,100,255,0); // maps blue sensor output to standard RGB range **Change input values to map to within appropriate range after testing**
   delay(100);
-  
+
+  //PID light control
+
+  while (red_Colour != red_Setpoint) {
+    
+  }
 }
 
 void emergancy_Stop(){
