@@ -1,3 +1,6 @@
+//Libraries
+#include <PID_v1.h>
+
 
 //---INPUTS---
 
@@ -33,8 +36,11 @@ int green_Freq = 0;
 int blue_Freq = 0;
 
 int red_Colour = 0;
+int red_Setpoint = 0;
 int green_Colour = 0;
+int green_Setpoint = 0;
 int blue_Colour = 0;
+int blue_Setpoint = 0;
 
 
 //---OUTPUTS---
@@ -121,7 +127,7 @@ void colour_Check(){
 
   blue_Freq = pulseIn(S_Out,LOW);
   blue_Colour = map(blue_Freq, 0,100,255,0); // maps blue sensor output to standard RGB range **Change input values to map to within appropriate range after testing**
-delay(100);
+  delay(100);
   
 }
 
