@@ -35,12 +35,12 @@ int red_Freq = 0;
 int green_Freq = 0;
 int blue_Freq = 0;
 
-int red_Colour = 0;
-int red_Setpoint = 0;
-int green_Colour = 0;
-int green_Setpoint = 0;
-int blue_Colour = 0;
-int blue_Setpoint = 0;
+double red_Colour = 0;
+double red_Setpoint = 0;
+double green_Colour = 0;
+double green_Setpoint = 0;
+double blue_Colour = 0;
+double blue_Setpoint = 0;
 
 
 //---OUTPUTS---
@@ -69,7 +69,16 @@ int green_Val = 0;
 const int blue = 14;
 int blue_Val = 0;
 
+//---OTHER---
 
+
+double Kp = 0;
+double Ki = 0;
+double Kd = 0;
+
+PID red_PID(red_Colour, red_Val, red_Setpoint, Kp, Ki, Kd, DIRECT);
+PID green_PID(green_Colour, green_Val, green_Setpoint, Kp, Ki, Kd, DIRECT);
+PID blue_PID(blue_Colour, blue_Val, blue_Setpoint, Kp, Ki, Kd, DIRECT);
 
 
 void setup() {
@@ -100,6 +109,11 @@ void setup() {
   
   digitalWrite(S0,HIGH); //sets the frequency scaling to 20%
   digitalWrite(S1,LOW);
+
+
+  red_PID.SetMode(AUTOMATIC);
+  green_PID.SetMode(AUTOMATIC);
+  blue_PID.SetMode(AUTOMATIC);
 }
 
 void loop() {
@@ -132,7 +146,13 @@ void colour_Check(){
   //PID light control
 
   while (red_Colour != red_Setpoint) {
-    
+    red_PID.Compute();
+  }
+  while (green_Colour != green_Setpoint) {
+    green_PID.Compute();
+  }
+  while (blue_Colour != blue_Setpoint) {
+    blue_PID.Compute();
   }
 }
 
